@@ -23,7 +23,7 @@ namespace RookiesConsoleFirstDay
 
         }
 
-        public Member(string firstName, string lastName, string gender, DateTime dateOfBirth, string phoneNumber, string birthplace, int age, bool isGraduated)
+        public Member(string firstName, string lastName, string gender, DateTime dateOfBirth, string phoneNumber, string birthplace, bool isGraduated)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -31,7 +31,7 @@ namespace RookiesConsoleFirstDay
             DateOfBirth = dateOfBirth;
             PhoneNumber = phoneNumber;
             Birthplace = birthplace;
-            Age = age;
+            Age = DateTime.Now.Year - dateOfBirth.Year;
             IsGraduated = isGraduated;
         }
 
@@ -50,7 +50,13 @@ namespace RookiesConsoleFirstDay
         public void DisplayFullname()
         {
             Console.WriteLine($"Full Name: {FirstName} {LastName}");
-            
+            Console.WriteLine($"Gender: {Gender}");
+            Console.WriteLine($"Date of Birth: {DateOfBirth.ToString("yyyy-MM-dd")}");
+            Console.WriteLine($"Phone Number: {PhoneNumber}");
+            Console.WriteLine($"Birthplace: {Birthplace}");
+            Console.WriteLine($"Age: {Age}");
+            Console.WriteLine($"Is Graduated: {(IsGraduated ? "Yes" : "No")}");
+
         }
 
 
