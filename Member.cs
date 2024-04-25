@@ -53,15 +53,7 @@ namespace RookiesConsoleFirstDay
             Console.WriteLine($"Birthplace: {Birthplace}");
             Console.WriteLine($"Age: {Age}");
             Console.WriteLine($"Is Graduated: {(IsGraduated ? "Yes" : "No")}");
-
         }
-
-
-
-
-
-
-
     }
 
 }

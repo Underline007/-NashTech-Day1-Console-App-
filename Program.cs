@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Runtime.ConstrainedExecution;
 
 namespace RookiesConsoleFirstDay
@@ -19,20 +20,20 @@ namespace RookiesConsoleFirstDay
 
             int choice;
             //UI
-            Console.WriteLine("1. Return members who are Male");
-            Console.WriteLine("2. Return oldest member");
-            Console.WriteLine("3. Return list containing Fullname");
-            Console.WriteLine("4. Return 3 lists (Born In 2000, Born After 2000 and Born before 2000)");
-            Console.WriteLine("5. Return the first person who was born in Ha Noi");
-            Console.WriteLine("6. Clean Screen");
-            Console.WriteLine("7. Exit");
+            DisplayMenu();
             try
             {
                 do
                 {
                     Console.Write("\nYour choice: ");
-                    choice = int.Parse(Console.ReadLine());
+                    while (!int.TryParse(Console.ReadLine(), out choice))
+                    {
+                        Console.WriteLine("Invalid input. Please enter a valid integer.");
+                        Console.Write("Your choice: ");
+                    }
+
                     Console.WriteLine();
+
                     switch (choice)
                     {
                         case 1:
@@ -67,6 +68,20 @@ namespace RookiesConsoleFirstDay
             {
                 Console.WriteLine(ex.Message.ToString());
             }
+
+
+            //Display Menu
+            void DisplayMenu()
+            {
+                Console.WriteLine("1. Return members who are Male");
+                Console.WriteLine("2. Return oldest member");
+                Console.WriteLine("3. Return list containing Fullname");
+                Console.WriteLine("4. Return 3 lists (Born In 2000, Born After 2000 and Born before 2000)");
+                Console.WriteLine("5. Return the first person who was born in Ha Noi");
+                Console.WriteLine("6. Clean Screen");
+                Console.WriteLine("7. Exit");
+            }
+
 
             //Male Members
             void MaleMembers()
